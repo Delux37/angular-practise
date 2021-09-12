@@ -1,3 +1,4 @@
+import { BasicService } from './../basic.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,33 +6,19 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss']
 })
+
 export class UsersListComponent implements OnInit {
+  constructor(private basicSerivce: BasicService) {  }
+  users: any[] = [];
   title: string = "Welcome"
   description: string = "this is students list:"
-  users = [
-    {
-      name: 'George',
-      age: 20,
-      job: 'frontend'
-    },
-    {
-      name: 'Anna',
-      age: 19,
-      job: 'UX/UI'
-    },
-    {
-      name: 'Luka',
-      age: 18,
-      job: 'backend'
-    }
-  ]
-
+  
   deleteUserByName(name: string) {
     this.users = this.users.filter(user => user.name !== name);
   }
-  constructor() { }
 
   ngOnInit(): void {
+    this.users = this.basicSerivce.fetchUsers();
   }
 
 }
