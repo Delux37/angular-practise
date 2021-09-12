@@ -1,1 +1,27 @@
-<p>simple-form works!</p>
+<form class="td-form">
+    <label for="username">username:</label>
+    <input type="text" id="username">
+    <div class="passwords-grup">
+        <label for="password">password:</label>
+        <input type="password" id="password">
+
+        <label for="cpassword">Confirm Password:</label>
+        <input type="text" id="cpassword">
+    </div>
+    <label for="male">Male</label>
+    <input type="radio" id="male" name="gender">
+    <label for="female">Female</label>
+    <input type="radio" id="female" name="gender">
+    <br>
+    <label for="job">Select your job:</label>
+    <select id="job">
+        <option selected value="frontend">Frontend</option>
+        <option value="backend">Backend</option>
+        <option value="ux/ui">UX/UI</option>
+    </select>
+    <br>
+    <input type="checkbox" id="subscribe">
+    <label for="subscribe">Agree our terms and services</label>
+    <br>
+    <input type="submit" value="Submit">
+</form>

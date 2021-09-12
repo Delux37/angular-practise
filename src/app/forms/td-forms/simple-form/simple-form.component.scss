@@ -1,0 +1,11 @@
+form > label:first-of-type,
+div > label {
+    display: block;
+}
+
+.td-form {
+    width: fit-content;
+    margin: 50px auto;
+    border: 1px solid black;
+    padding: 2
+}
