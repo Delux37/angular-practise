@@ -1,0 +1,18 @@
+<table>
+    <tr>
+        <!-- add structural directive ngIf -->
+        <td>{{ name }}
+            <span *ngIf = "name === 'George'; else user">Hello George</span>
+            <ng-template #user><span>Hello user</span></ng-template>
+        </td>
+        <!-- directive [ngClass]="" or class.'classname' = "condition" -->
+        <td [ngClass]="{ 'teenager': age < 20 }" [ngStyle]="{ 'text-decoration': 'underline' }">{{ age }}</td>
+
+        <td [class.frontend]="proffesion === 'frontend'">{{ proffesion }}</td>
+        <td><button (click)="onEdit()">Edit</button><button (click)="onDelete()">Delete</button></td>
+        <div *ngIf="isEditMode">
+            <input type="text" [(ngModel)] = "editValue">
+            <button (click)="submitEdit()">Save</button>
+        </div>
+    </tr>
+</table>

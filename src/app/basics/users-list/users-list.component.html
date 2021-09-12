@@ -1,0 +1,29 @@
+<!-- String Interpolation -->
+<h1>{{ title }}</h1>
+<!-- property binding -->
+<p [textContent]="description"></p>
+<table>
+    <tr>
+        <th>Name:</th>
+        <th>Age:</th>
+        <th>Job:</th>
+    </tr>
+</table>
+<!-- structural directive ngFor -->
+<app-users-card 
+*ngFor="let user of users" 
+[name] = user.name
+[age] = user.age
+[(proffesion)] = user.job
+
+(deleteUser) = "deleteUserByName($event)"
+></app-users-card>
+
+<!-- 
+BEFORE TWO WAY BINDING
+[proffesion] = user.job
+(proffesionChange) = "user.job = $event"
+
+AFTER TWO WAY BINDING:
+[(proffesion)] = user.job
+-->
