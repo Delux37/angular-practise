@@ -1,26 +1,40 @@
-<form class="td-form">
+<form class="td-form" #form = "ngForm">
     <label for="username">username:</label>
-    <input type="text" id="username">
-    <div class="passwords-grup">
+    <input 
+    type="text" 
+    id="username" 
+    ngModel 
+    name="username"
+    >
+
+    <div class="passwords-grup" ngModelGroup="password-group">
         <label for="password">password:</label>
-        <input type="password" id="password">
+        <input type="password" 
+        id="password" 
+        name="password"
+        ngModel
+        >
 
         <label for="cpassword">Confirm Password:</label>
-        <input type="text" id="cpassword">
+        <input type="text" 
+        id="cpassword" 
+        name="cpassword"
+        ngModel
+        >
     </div>
     <label for="male">Male</label>
-    <input type="radio" id="male" name="gender">
+    <input type="radio" id="male" name="gender" ngModel>
     <label for="female">Female</label>
-    <input type="radio" id="female" name="gender">
+    <input type="radio" id="female" name="gender" ngModel>
     <br>
     <label for="job">Select your job:</label>
-    <select id="job">
+    <select id="job" ngModel name="job">
         <option selected value="frontend">Frontend</option>
         <option value="backend">Backend</option>
         <option value="ux/ui">UX/UI</option>
     </select>
     <br>
-    <input type="checkbox" id="subscribe">
+    <input type="checkbox" id="subscribe" ngModel name="subscribe">
     <label for="subscribe">Agree our terms and services</label>
     <br>
     <input type="submit" value="Submit">
