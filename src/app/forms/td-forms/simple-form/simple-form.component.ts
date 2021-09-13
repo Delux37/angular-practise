@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms'
 
 
@@ -8,8 +8,11 @@ import { NgForm } from '@angular/forms'
   styleUrls: ['./simple-form.component.scss']
 })
 export class SimpleFormComponent implements OnInit {
-
+  defaultValue: string = 'default value'
+  twoWayBinding: string = ''
   constructor() { }
+
+  @ViewChild('form') form!: NgForm;
 
   ngOnInit(): void {
   }
@@ -21,5 +24,10 @@ export class SimpleFormComponent implements OnInit {
       gender: form.value.username
     } 
     console.log(submitted);
+  }
+  updateUsername() {
+    this.form.form.patchValue({
+      'username': 'George'
+    })
   }
 }

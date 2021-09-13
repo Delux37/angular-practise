@@ -48,5 +48,13 @@
     <input type="checkbox" id="subscribe" ngModel #subscribe="ngModel" name="subscribe">
     <label for="subscribe">Agree our terms and services</label>
     <br>
+    <!-- prop binding for devault value -->
+    <input type="text" [ngModel]="defaultValue" name="default">
+    <br>
+    <!-- two way binding -->
+    <input type="text" [(ngModel)]="twoWayBinding" name="twoWayBinding">
+    <p>Two way binding value: {{ twoWayBinding }}</p>
+
     <input type="submit" [disabled]="!subscribe.value" value="Submit">
+    <input type="button" value="Suggest username" (click)="updateUsername()">
 </form>
