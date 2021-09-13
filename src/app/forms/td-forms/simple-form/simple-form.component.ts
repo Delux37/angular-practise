@@ -14,6 +14,12 @@ export class SimpleFormComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(form: NgForm){
-    console.log(form);
+    const submitted = {
+      username: form.value.username,
+      password: form.value['password-group'].password,
+      job: form.value.job,
+      gender: form.value.username
+    } 
+    console.log(submitted);
   }
 }
