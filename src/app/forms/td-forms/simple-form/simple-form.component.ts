@@ -23,6 +23,7 @@ export class SimpleFormComponent implements OnInit {
       job: form.value.job,
       gender: form.value.username
     } 
+    this.form.reset();
     console.log(submitted);
   }
   updateUsername() {
