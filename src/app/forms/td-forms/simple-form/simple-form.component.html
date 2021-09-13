@@ -1,11 +1,17 @@
-<form class="td-form" #form = "ngForm">
+<form class="td-form" #form = "ngForm" (ngSubmit)="onSubmit(form)">
     <label for="username">username:</label>
     <input 
     type="text" 
     id="username" 
     ngModel 
+    #username="ngModel"
     name="username"
+    required
+    minlength="3"
+    autocomplete="off"
     >
+    <p *ngIf = "username.errors?.required">Username is required</p>
+    <p *ngIf = "username.errors?.minlength">Username should contain at least 3 character</p>
 
     <div class="passwords-grup" ngModelGroup="password-group">
         <label for="password">password:</label>
@@ -13,6 +19,7 @@
         id="password" 
         name="password"
         ngModel
+        #password="ngModel"
         >
 
         <label for="cpassword">Confirm Password:</label>
@@ -20,7 +27,11 @@
         id="cpassword" 
         name="cpassword"
         ngModel
+        #cpassword="ngModel"
         >
+        <p *ngIf="cpassword.touched && cpassword.value !== password.value && cpassword">
+            passwords doesn't match
+        </p>
     </div>
     <label for="male">Male</label>
     <input type="radio" id="male" name="gender" ngModel>
@@ -34,8 +45,8 @@
         <option value="ux/ui">UX/UI</option>
     </select>
     <br>
-    <input type="checkbox" id="subscribe" ngModel name="subscribe">
+    <input type="checkbox" id="subscribe" ngModel #subscribe="ngModel" name="subscribe">
     <label for="subscribe">Agree our terms and services</label>
     <br>
-    <input type="submit" value="Submit">
+    <input type="submit" [disabled]="!subscribe.value" value="Submit">
 </form>
